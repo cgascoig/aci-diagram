@@ -1,3 +1,5 @@
+#!/usr/bin/env python 
+
 from acitoolkit.acitoolkit import *
 import pygraphviz as pgv
 import sys
