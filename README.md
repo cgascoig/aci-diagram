@@ -1,18 +1,32 @@
 # ACI Diagram generator
 
-This is a simple application to connect to an APIC using the acitoolkit library, retrieve the configuration and generate diagrams of the configuration. 
+This is a simple tool to connect to a Cisco ACI Application Policy Infrastructure Controller using the [acitoolkit](http://github.com/datacenter/acitoolkit) library, interrogate the configuration and generate logical diagrams. 
 
 ##Installation
-The main requirement is for GraphViz and the python wrapper PyGraphViz.
+###Requirements
+- GraphViz and the python wrapper PyGraphViz.
+- [acitoolkit](http://github.com/datacenter/acitoolkit)
 
-On MacOS, the easiest way to install these is (assuming you have HomeBrew and pip setup):
+On MacOS, the easiest way to install the GraphViz requirements is (assuming you have HomeBrew and pip setup):
 
 ```bash
 brew install graphviz
 pip install pygraphviz
 ```
 
+Installation instructions for the acitoolkit are [here](http://github.com/datacenter/acitoolkit)
+
+###Downloading
+If you have git installed, simply clone the repository:
+	
+	git clone https://github.com/cgascoig/aci-diagram.git
+	
+Alternatively, if you don't have git installed, [download a zip file of the repository](https://github.com/cgascoig/aci-diagram/archive/master.zip)
+
 ##Usage
+
+The usage is simple - the login (username), password and URL arguments are required. By default the tool will include all tenants in the diagram, but you can restrict this to a subset of tenants using the `-t` argument.
+
 
 ```
 usage: diagram.py [-h] -l LOGIN -p PASSWORD -u URL -o OUTPUT
