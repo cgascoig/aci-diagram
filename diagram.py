@@ -72,11 +72,10 @@ for tenant in tenants:
             tncluster.add_node(sn_node(tenant, bd, sn), label = "Subnet\n"+sn.get_addr(), shape='box', style='dotted')
             tncluster.add_edge(bd_node(tenant, bd), sn_node(tenant, bd, sn))
     for app in tenant.get_children(only_class=AppProfile):
-        # tncluster.add_node(app_node(tenant, app), label="Application Profile\n"+app.name)        
+        
         appcluster=tncluster.add_subgraph(name=app_node(tenant, app), label="Application Profile\n"+app.name)
         
         for epg in app.get_children(only_class=EPG):
-            # tncluster.add_node(epg_node(tenant, app, epg), label="EPG\n"+epg.name)
             appcluster.add_node(epg_node(tenant, app, epg), label="EPG\n"+epg.name)
             if epg.has_bd():
                 tncluster.add_edge(bd_node(tenant,epg.get_bd()), epg_node(tenant, app, epg), style='dotted')
