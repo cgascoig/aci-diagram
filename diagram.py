@@ -3,18 +3,14 @@
 from acitoolkit.acitoolkit import *
 import pygraphviz as pgv
 import sys
-import argparse
 
-parser = argparse.ArgumentParser(description="Generate logical diagrams of a running Cisco ACI Application Policy Infrastructure Controller")
+creds = Credentials('apic', "Generate logical diagrams of a running Cisco ACI Application Policy Infrastructure Controller")
 
-parser.add_argument('-l', '--login', help='Login for authenticating to APIC', required=True)
-parser.add_argument('-p', '--password', help='Password for authenticating to APIC', required=True)
-parser.add_argument('-u', '--url', help='URL for connecting to APIC', required=True)
-parser.add_argument('-o', '--output', help='Output file for diagram - e.g. out.png, out.jpeg', required=True)
-parser.add_argument('-t', '--tenants', help='Tenants to include when generating diagrams', nargs='*')
-parser.add_argument('-v', '--verbose', help='show verbose logging information', action='store_true')
+creds.add_argument('-o', '--output', help='Output file for diagram - e.g. out.png, out.jpeg', required=True)
+creds.add_argument('-t', '--tenants', help='Tenants to include when generating diagrams', nargs='*')
+creds.add_argument('-v', '--verbose', help='show verbose logging information', action='store_true')
 
-args = parser.parse_args()
+args = creds.get()
 
 session = Session(args.url, args.login, args.password)
 try:
