@@ -2,6 +2,9 @@
 
 This is a simple tool to connect to a Cisco ACI Application Policy Infrastructure Controller using the [acitoolkit](http://github.com/datacenter/acitoolkit) library, interrogate the configuration and generate logical diagrams. 
 
+##Update
+** aci-diagram is now part of the [acitoolkit](http://github.com/datacenter/acitoolkit) itself, this repository is only left for historical information. To use aci-diagram, simply install the latest acitoolkit and you'll find aci-diagram in the applications directory. **
+
 ##Installation
 ###Requirements
 - GraphViz and the python wrapper PyGraphViz.
